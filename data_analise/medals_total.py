@@ -1,10 +1,10 @@
-# athletes.py
+# medals_total.py
 import pandas as pd
 from pathlib import Path
-from data_analise.import_excel import athletes_csv
+from data_analise.import_excel import medals_total_csv
 
-def athletes(athletes_csv: Path = athletes_csv) -> pd.DataFrame:
-    df = pd.read_csv(athletes_csv)
+def medals_total(medals_total_csv: Path = medals_total_csv) -> pd.DataFrame:
+    df = pd.read_csv( medals_total_csv )
 
     # --- aqui vão seus tratamentos e colunas adicionais ---
     df.head()
