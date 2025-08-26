@@ -1,10 +1,10 @@
 # teams.py
 import pandas as pd
 from pathlib import Path
-from ..import_excel import teams_csv
+from import_excel import teams_csv
 
 def teams(teams_csv: Path = teams_csv) -> pd.DataFrame:
-    df = pd.read_csv( Path(teams_csv) )
+    df = pd.read_csv( teams_csv )
 
     # --- aqui vão seus tratamentos e colunas adicionais ---
     df.head()
