@@ -1,7 +1,7 @@
 # teams.py
 import pandas as pd
 from pathlib import Path
-from data_analise.import_excel import teams_csv
+from importExcel.path_excel import teams_csv
 
 def teams(teams_csv: Path = teams_csv) -> pd.DataFrame:
     df = pd.read_csv( teams_csv )

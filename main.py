@@ -6,45 +6,45 @@ from data_analise.athletes import athletes
 from data_analise.teams    import teams
 from data_analise.medals_total import medals_total
 
-def main():
-    output_path = Path("C:/Users/kethl/Documents/Programacao/Excel/novo_teste.xlsx")
+# def main():
+#     output_path = Path("C:/Users/kethl/Documents/Programacao/Excel/novo_teste.xlsx")
     
-    # Garante que o diretório existe
-    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+#     # Garante que o diretório existe
+#     os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
-    # Lista de (nome da aba, função que retorna df)
-    ALL_SHEETS = [
-        ("Atletas", athletes),
-        ("Teams",   teams),
-        ("Medals_total", medals_total),
-        # … outras funções …
-    ]
+#     # Lista de (nome da aba, função que retorna df)
+#     ALL_SHEETS = [
+#         ("Atletas", athletes),
+#         ("Teams",   teams),
+#         ("Medals_total", medals_total),
+#         # … outras funções …
+#     ]
 
-    for idx, (name, _) in enumerate(ALL_SHEETS, start=1):
-        print(f"{idx}. {name}")
+#     for idx, (name, _) in enumerate(ALL_SHEETS, start=1):
+#         print(f"{idx}. {name}")
 
-    choices = input("Digite os números das abas separados por vírgula (ou ENTER para todas): ")
-    if choices.strip():
-        indices = [int(i)-1 for i in choices.split(",")]
-        selected = {ALL_SHEETS[i][0] for i in indices}
-    else:
-        selected = {name for name, _ in ALL_SHEETS}
+#     choices = input("Digite os números das abas separados por vírgula (ou ENTER para todas): ")
+#     if choices.strip():
+#         indices = [int(i)-1 for i in choices.split(",")]
+#         selected = {ALL_SHEETS[i][0] for i in indices}
+#     else:
+#         selected = {name for name, _ in ALL_SHEETS}
 
-    # Usa o contexto 'with' para garantir salvamento correto
-    with pd.ExcelWriter(output_path, engine="openpyxl") as writer:
-        for name, func in ALL_SHEETS:
-            if name not in selected:
-                continue
-            try:
-                df = func()
-            except Exception as e:
-                df = pd.DataFrame({"Erro": [str(e)]})
-            df.to_excel(writer, sheet_name=name, index=False)
+#     # Usa o contexto 'with' para garantir salvamento correto
+#     with pd.ExcelWriter(output_path, engine="openpyxl") as writer:
+#         for name, func in ALL_SHEETS:
+#             if name not in selected:
+#                 continue
+#             try:
+#                 df = func()
+#             except Exception as e:
+#                 df = pd.DataFrame({"Erro": [str(e)]})
+#             df.to_excel(writer, sheet_name=name, index=False)
 
-    print("Planilha final salva em:", output_path)
+#     print("Planilha final salva em:", output_path)
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()
 
 
 ######################################################################################################################

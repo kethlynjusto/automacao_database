@@ -1,7 +1,7 @@
 # medals_total.py
 import pandas as pd
 from pathlib import Path
-from data_analise.import_excel import medals_total_csv
+from importExcel.path_excel import medals_total_csv
 
 def medals_total(medals_total_csv: Path = medals_total_csv) -> pd.DataFrame:
     df = pd.read_csv( medals_total_csv )
